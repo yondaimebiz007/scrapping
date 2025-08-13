@@ -3,12 +3,19 @@ import csv
 from bs4 import BeautifulSoup
 import re
 import os
+import logging
 
 requestheaders = {
     'User-Agent': 'Mozilla/5.0'
 }
 
 data = []
+
+logging.basicConfig(
+    filename='app.log',       # Log messages will be saved to this file
+    level=logging.INFO,       # Set the minimum level of messages to log
+    format='%(asctime)s - %(levelname)s - %(message)s'  # Message format
+)
 
 with open('output.csv', newline = '', encoding = 'utf-8') as csvfile:
     csvreader = csv.reader(csvfile)
@@ -71,7 +78,4 @@ with open('output.csv', newline = '', encoding = 'utf-8') as csvfile:
                 writer.writerows(data)
 
             print(f"Data exported to {filename}")
-
-
-        if i >= 30:
-            break
+            logging.info(f'checked {i} items...')
