@@ -77,8 +77,9 @@ with open('output.csv', newline = '', encoding = 'utf-8') as csvfile:
                 with open(filename, 'w', newline='') as file:
                     writer = csv.writer(file)
                     writer.writerows(updatedata)
+                print('here')
             else:
-
+                print('over here')
                 # Get the headers from the keys of the first dictionary
                 headers = data[0].keys()
 
@@ -91,5 +92,5 @@ with open('output.csv', newline = '', encoding = 'utf-8') as csvfile:
                 print(f"Data exported to {filename}")
 
 
-        if i >= 100:
+        if i >= 30:
             break
