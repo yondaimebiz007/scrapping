@@ -18,6 +18,7 @@ with open('output.csv', newline = '', encoding = 'utf-8') as csvfile:
 
         print(f'working on {i}')
         url = row[1]
+        print(f"url, {url}")
         response = requests.get(url, headers = headers)
         
         cell = {"Name": row[0], "URL": row[1], "GitHub": row[2], "Twitter": row[3], "Website": row[4]}
@@ -73,7 +74,7 @@ with open('output.csv', newline = '', encoding = 'utf-8') as csvfile:
                     updatedata = list(reader)
                 updatedata.extend(data)
 
-                with open('yourfile.csv', 'w', newline='') as file:
+                with open(filename, 'w', newline='') as file:
                     writer = csv.writer(file)
                     writer.writerows(updatedata)
             else:
